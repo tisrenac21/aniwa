@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{templates/layout}">
+<th:block layout:fragment="customStyle">
+    <link rel="stylesheet" type="text/css" href="/css/vtuber/vtuber_list.css">
+</th:block>
+
+<th:block layout:fragment="main">
+    <div class="tab-content">
+        <div id="hololive" class="board active">
+            <h3 id="vtuberName"></h3>
+            <table>
+                <colgroup>
+                    <col class="forPC" style="width: 72%;">
+                    <col class="forPC" style="width: 7%;">
+                    <col class="forPC" style="width: 7%;">
+                    <col class="forPC" style="width: 7%;">
+                    <col class="forPC" style="width: 7%;">
+                    <col class="forMobile" style="width: 50%;">
+                    <col class="forMobile" style="width: 25%;">
+                    <col class="forMobile" style="width: 25%;">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th class="text_left">제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                    <th class="forPC">조회수</th>
+                    <th class="forPC">추천</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="text_left">
+                        <span style="font-weight: bold; color: gray;">[ DEV_IS - ReGLOSS - 오토노세 카나데 ]</span>&nbsp;
+                        <span class="board_title"><a href="./vtuber_detail.html">글 제목</a></span>&nbsp;&nbsp;
+                        <span style="font-size: 0.8em; color: gray">(13)</span>
+                    </td>
+                    <td>관리자</td>
+                    <td>2025-02-19</td>
+                    <td class="forPC">0</td>
+                    <td class="forPC">0</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+            <button class="write-btn">글쓰기</button>
+        </div>
+    </div>
+</th:block>
+
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+        var type = [[${type}]];
+        var tabName = "";
+        if (type == "hololive") {
+            tabName = "홀로라이브";
+        } else if (type == "stellive") {
+            tabName = "스텔라이브";
+        } else if (type == "isegyeidol") {
+            tabName = "이세계아이돌";
+        } else if (type == "plave") {
+            tabName = "플레이브";
+        } else {
+            tabName = "기타";
+        }
+
+        $("#vtuberName").text(tabName);
+
+        $(".write-btn").off("click").on('click', function (e) {
+            location.href = "/vtuber/write/" + type;
+        })
+    </script>
+</th:block>

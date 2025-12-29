@@ -1,0 +1,54 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="header">
+  <header>
+    <div class="header-container">
+      <div class="logo" onclick="location.href='/'">ANIWA</div>
+      <button class="login-btn">로그인</button>
+      <div id="navbar_burger" class="navbar_burger">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-list"
+             viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg>
+      </div>
+
+      <div class="hamburger_nav">
+        <a href="/">홈</a>
+        <a href="#">인기 애니</a>
+        <a href="#" id="vtuber">VTuber</a>
+        <div id="dropdownVtuber" class="dropdown-content sub_nav_vtuber">
+          <a id="nav_ham_hololive">홀로라이브</a>
+          <a id="nav_ham_stellive">스텔라이브</a>
+          <a id="nav_ham_isegyeidol">이세계아이돌</a>
+          <a id="nav_ham_plave">플레이브</a>
+          <a id="nav_ham_etc">기타</a>
+        </div>
+        <a href="#">J-POP</a>
+        <a href="#">소개</a>
+        <div class="navbar_burger_back">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+               class="bi bi-x-lg" viewBox="0 0 16 16">
+            <path
+                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+          </svg>
+        </div>
+        <div class="login-btn-hamburger">로그인</div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="header_nav">
+    <a href="/">홈</a>
+    <a href="#">인기 애니</a>
+    <a id="vtuberPc">VTuber</a>
+    <a href="#">J-POP</a>
+    <a href="#">소개</a>
+  </nav>
+  <nav id="dropdownVtuberPc" class="header_sub_nav_vtuber sub_nav_vtuber">
+    <a id="nav_hololive" href="/vtuber/list/hololive">홀로라이브</a>
+    <a id="nav_stellive" href="/vtuber/list/stellive">스텔라이브</a>
+    <a id="nav_isegyeidol" href="/vtuber/list/isegyeidol">이세계아이돌</a>
+    <a id="nav_plave" href="/vtuber/list/plave">플레이브</a>
+    <a id="nav_etc" href="/vtuber/list/etc">기타</a>
+  </nav>
+</th:block>

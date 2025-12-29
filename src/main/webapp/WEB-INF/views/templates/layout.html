@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIWA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Roboto&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <th:block layout:fragment="customStyle"></th:block>
+
+    <script src="/js/jquery-3.6.3.min.js"></script>
+
+</head>
+<body>
+<th:block th:replace="templates/header :: header"></th:block>
+
+<main>
+    <th:block layout:fragment="main"></th:block>
+</main>
+
+<footer>&copy; 2025 ANIWA. All rights reserved.</footer>
+<script src="/js/common.js"></script>
+<th:block layout:fragment="script"></th:block>
+</body>
+</html>

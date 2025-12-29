@@ -1,0 +1,88 @@
+.tab-content {
+    padding: 40px 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.board {
+    display: none;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.board.active {
+    display: block;
+}
+
+.board h3 {
+    font-size: 1.8em;
+    color: #4e5a73;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-container textarea {
+    min-height: 300px;
+}
+
+.form-container button {
+    background-color: #506D91;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.form-container button:hover {
+    background-color: #6C84A5;
+}
+
+.file-container {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.kategorie {
+    margin-bottom: 10px;
+}
+
+.kategorie select {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.kategorie select:focus {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}

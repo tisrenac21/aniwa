@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{templates/layout}">
+<th:block layout:fragment="customStyle">
+    <link rel="stylesheet" type="text/css" href="/css/vtuber/vtuber_write.css">
+</th:block>
+
+<th:block layout:fragment="main">
+    <div class="tab-content">
+        <div id="hololive" class="board active">
+            <h3 id="vtuberName"></h3>
+            <div class="form-container">
+                <form action="#" method="POST">
+                    <div class="kategorie"></div>
+
+
+                    <label for="title_holo">제목</label>
+                    <input type="text" id="title_holo" name="title" required>
+
+                    <label for="author_holo">작성자</label>
+                    <input type="text" id="author_holo" name="author" required>
+
+                    <label for="content_holo">내용</label>
+                    <textarea id="content_holo" name="content" rows="6" required></textarea>
+
+                    <label for="imgBtn_holo">이미지 첨부</label>
+                    <div class="file-container">
+
+                        <button type="button" id="updImg_holo" class="updImg"
+                                style="width: 150px;background-color: #8b94a7;color: rgb(255, 255, 255);font-weight: 500;">이미지
+                            등록</button>
+                        <input type="file" id="imgBtn_holo" class="imgBtn" name="image" accept="image/*"
+                               style="display: none;" onchange="previewImage(event, 'holo')">
+                        <img class="imagePrivew" id="imagePrivew_holo" src="#" alt="미리보기"
+                             style="display: none; max-width: 100%; max-height: 100px; margin-top: 10px; cursor: pointer;"
+                             onclick="toggleFullSize(this)">
+                    </div>
+
+                    <button type="submit">글 작성하기</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+        const type = [[${type}]];
+        const $kategoriBox = $(".kategorie");
+        const vtuberNameMap = {
+            hololive: "홀로라이브",
+            stellive: "스텔라이브",
+            isegyeidol: "이세계아이돌",
+            plave: "플레이브",
+        };
+
+        const optionList = {
+            hololive: [
+                { value: "", label: "전체" },
+                { value: "JP", label: "JP" },
+                { value: "EN", label: "EN" },
+                { value: "ID", label: "ID" },
+                { value: "DEV_IS", label: "DEV_IS" },
+            ],
+            stellive: [
+                { value: "", label: "전체" },
+                { value: "mystic", label: "1기생(Mystic)" },
+                { value: "universe", label: "2기생(Universe)" },
+                { value: "cliche", label: "3기생(Cliché)" },
+            ],
+            isegyeidol: [
+                { value: "", label: "전체" },
+                { value: "ine", label: "아이네" },
+                { value: "jingburger", label: "징버거" },
+                { value: "lilpa", label: "릴파" },
+                { value: "jururu", label: "주르르" },
+                { value: "gosegu", label: "고세구" },
+                { value: "viichan", label: "비챤" },
+            ],
+            plave: [
+                { value: "", label: "전체" },
+                { value: "yejun", label: "예준" },
+                { value: "noah", label: "노아" },
+                { value: "bamby", label: "밤비" },
+                { value: "eunho", label: "은호" },
+                { value: "hamin", label: "하민" }
+            ]
+        };
+
+        function buildSelect(id, options, onChange = '', hidden = false) {
+            let style = hidden ? 'display: none;' : '';
+            let html = `<select id="${id}" class="${id}" ${onChange ? `onchange="${onChange}"` : ''} style="${style}">`;
+            options.forEach(opt => {
+                html += `<option value="${opt.value}">${opt.label}</option>`;
+            });
+            html += '</select>';
+            return html;
+        }
+
+        function renderKategoriBox(type) {
+            let html = '';
+
+            if (type === "hololive") {
+                html += `<label for="step1_holo">카테고리 선택</label>`;
+                html += buildSelect("step1_holo", optionList.hololive, "updateStep2_holo()");
+                html += buildSelect("step2_holo", [], "updateStep3_holo()", true);
+                html += buildSelect("step3_holo", [], "", true);
+            } else if (type === "stellive") {
+                html += `<label for="step1_stel">카테고리 선택</label>`;
+                html += buildSelect("step1_stel", optionList.stellive, "updateStep2_stel()");
+                html += buildSelect("step2_stel", [], "updateStep3_stel()", true);
+            } else if (type === "isegyeidol") {
+                html += `<label for="step1_isd">멤버 선택</label>`;
+                html += buildSelect("step1_isd", optionList.isegyeidol);
+            } else if (type === "plave") {
+                html += `<label for="step1_plave">멤버 선택</label>`;
+                html += buildSelect("step1_plave", optionList.plave);
+            }
+
+            $kategoriBox.html(html);
+        }
+
+        const tabName = vtuberNameMap[type] || "기타";
+        $("#vtuberName").text(tabName);
+        renderKategoriBox(type);
+    </script>
+
+    <script src="/js/vtuber/vtuber_write.js"></script>
+</th:block>

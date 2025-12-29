@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{templates/layout}">
+<th:block layout:fragment="customStyle">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</th:block>
+
+<th:block layout:fragment="main">
+        <div class="anime-card">
+            <img src="/image/apothecary_diaries.png_"
+                alt="약사의 혼잣말">
+            <div class="content">
+                <div class="title">약사의 혼잣말</div>
+                <div class="subtitle">薬屋のひとりごと</div>
+                <div class="description">궁중 후궁에서 약사로 일하는 마오마오가, 독과 미스터리를 풀며 권력 다툼 속에 휘말리는 이야기.</div>
+            </div>
+        </div>
+        <div class="anime-card">
+            <img src="/image/bocchi_the_rock.png_"
+                alt="외톨이 THE ROCK!">
+            <div class="content">
+                <div class="title">외톨이 THE ROCK!</div>
+                <div class="subtitle">ぼっち・ざ・ろっく！</div>
+                <div class="description">혼자였던 소녀가 밴드를 통해 진정한 친구와 음악을 찾아가는 성장 이야기.</div>
+            </div>
+        </div>
+        <div class="anime-card">
+            <img src="/image/frieren.png_"
+                alt="장송의 프리렌">
+            <div class="content">
+                <div class="title">장송의 프리렌</div>
+                <div class="subtitle">葬送のフリーレン</div>
+                <div class="description">수백 년을 살아온 엘프 마법사 프리렌이, 사라진 동료들과의 추억을 되새기며 성장하는 이야기.</div>
+            </div>
+        </div>
+        <div class="anime-card">
+            <img src="/image/rezero.png_"
+                alt="Re:제로">
+            <div class="content">
+                <div class="title">Re:제로부터 시작하는 이세계 생활</div>
+                <div class="subtitle">Re: ゼロから始める異世界生活</div>
+                <div class="description">나츠키 스바루가 이세계에서 죽음을 통해 진실을 마주하는 이야기.</div>
+            </div>
+        </div>
+</th:block>
